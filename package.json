@@ -1,0 +1,19 @@
+{
+  "name": "music-info-bot",
+  "version": "1.0.0",
+  "description": "\tLook up y information on s tracks/albubum/artist ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shurui-li/music-info-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shurui-li/music-info-bot/issues"
+  },
+  "homepage": "https://github.com/shurui-li/music-info-bot#readme"
+}
