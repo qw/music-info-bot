@@ -24,7 +24,7 @@ function displayAlbumCard(session, response) {
 
         var card = new builder.HeroCard(session)
 	        .title(album)
-	        .text("This is a(an) " + albumType) // Album could be single or album
+	        .text(albumType + " by " + message.tracks.items[i].artists[0].name) // Album could be single or album
 	        .images([
 	            builder.CardImage.create(session, imageUrl)])
 	        .buttons([
