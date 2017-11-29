@@ -27,7 +27,7 @@ bot.on("conversationUpdate", function (message) {
     if (message.membersAdded) {
         message.membersAdded.forEach(function (identity) {
             if (identity.id === message.address.bot.id) {
-            	sendMessage(bot, message, "Hi! I am Ares! I can find information on tracks, or remember your favourite tracks. \n\nTry tpying: \n\n - [track] sounds good \n\n- I hate [track] \n\n - I'd like to know more about [track]");
+            	sendMessage(bot, message, "Hi! I am Ares. I can find information on tracks, or remember your favourite tracks. \n\nTry tpying: \n\n - [track] sounds good \n\n- I hate [track] \n\n - I'd like to know more about [track] \n\n Or type help for more information.");
             	// sendMessage(bot, message, "");
             	// sendMessage(bot, message, "I'd like to know more about [track]");
             }
