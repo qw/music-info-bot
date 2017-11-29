@@ -1,6 +1,7 @@
 var builder = require("botbuilder");
 var favourites = require("../controller/favourites");
 var information = require("../controller/information");
+var qna = require("../controller/QnA");
 
 exports.startDialog = function(bot) {
 	var recognizer = new builder.LuisRecognizer("https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/033ae1b6-dfe3-416a-8bc4-6de624245ef1?subscription-key=7d6b1b4d7f5148eca197f249906a368d&verbose=true&timezoneOffset=0&q=");
@@ -118,6 +119,29 @@ exports.startDialog = function(bot) {
 		matches: "Information.Track"
 	});
 
+	bot.dialog('Information.QnA', [
+	    function (session, args, next) {
+	    	console.log("Information.QnA Intent");
+	        session.dialogData.args = args || {};
+	        builder.Prompts.text(session, "What is your question?");
+	    },
+	    function (session, results, next) {
+	        qna.talkToQnA(session, results.response);
+	    }
+	]).triggerAction({
+	    matches: 'Information.QnA'
+	});
+
+	bot.dialog('Information.Help', 
+	    function (session, args, next) {
+	    	console.log("Information.QnA Intent");
+	        session.dialogData.args = args || {};
+	        // builder.Prompts.text(session, "What is your question?");
+	        qna.talkToQnA(session, session.message.text);
+	    }
+	).triggerAction({
+	    matches: 'Information.Help'
+	});
 
 	// bot.dialog("Welcome", 
 	// 	function(session, args) { 

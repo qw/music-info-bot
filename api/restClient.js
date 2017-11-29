@@ -104,3 +104,26 @@ function searchTrack(session, track, token, callback) {
 		}
 	})
 }
+
+exports.postQnAResults = function getQnAAnswer(session, question, callback){
+  var options = {
+      url: "https://westus.api.cognitive.microsoft.com/qnamaker/v2.0/knowledgebases/c9888aaf-17bf-45fd-82ff-040b047cfefc/generateAnswer",
+      method: 'POST',
+      headers: {
+          'Ocp-Apim-Subscription-Key': '6571a8c7b32e49608de564b82d972327',
+          'Content-Type':'application/json'
+      },
+      json: {
+          "question" : question
+      }
+    };
+
+    request(options, function (error, response, body) {
+      if (!error && response.statusCode === 200) {
+          callback(body, session, question);
+      }
+      else{
+          console.log(error);
+      }
+    });
+};

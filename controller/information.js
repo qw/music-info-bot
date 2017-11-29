@@ -20,7 +20,7 @@ function displayAlbumCard(session, response) {
 		var album = currentItem.name;
 		var albumType = currentItem.album_type;
 		var url = currentItem.external_urls.spotify;
-		var imageUrl = currentItem.images[0].url;
+		var imageUrl = currentItem.images[1].url;
 
         var card = new builder.HeroCard(session)
 	        .title(album)
@@ -32,8 +32,7 @@ function displayAlbumCard(session, response) {
         	]);
         cards.push(card);
 	}
-
-	    // Displays cards to the user
+    // Displays cards to the user
     var feedback = new builder.Message(session)
         .attachmentLayout(builder.AttachmentLayout.carousel)
         .attachments(cards);
