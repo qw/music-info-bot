@@ -1,5 +1,6 @@
 var builder = require("botbuilder");
 var favourites = require("../controller/favourites");
+var information = require("../controller/information");
 
 exports.startDialog = function(bot) {
 	var recognizer = new builder.LuisRecognizer("https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/033ae1b6-dfe3-416a-8bc4-6de624245ef1?subscription-key=7d6b1b4d7f5148eca197f249906a368d&verbose=true&timezoneOffset=0&q=");
@@ -101,6 +102,22 @@ exports.startDialog = function(bot) {
 	).triggerAction({
 		matches: "Information.Lyrics"
 	});
+
+	bot.dialog("Information.Track", 
+		function(session, args) { 
+			console.log("Information.Track Intent");
+	        var track = builder.EntityRecognizer.findEntity(args.intent.entities, 'track');
+	        if (track) {
+	        	session.send("Finding information on %s.", track.entity);
+	        	information.get(session, track.entity);
+	        } else {
+	        	session.send("Sorry, could not recognize track.");
+	        }
+		}
+	).triggerAction({
+		matches: "Information.Track"
+	});
+
 
 	// bot.dialog("Welcome", 
 	// 	function(session, args) { 
