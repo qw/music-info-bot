@@ -9,8 +9,8 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 });
 
 var connector = new builder.ChatConnector({
-    appId: process.env.MICROSOFT_APP_ID,
-    appPassword: process.env.MICROSOFT_APP_PASSWORD
+    appId: "a01a7b25-fe25-4c15-ad4e-f7fba7c16203",
+    appPassword: "hRXRO697%;)kyxozaJRV62!"
 });
 
 //MICROSOFT_APP_PASSWORD: hRXRO697%;)kyxozaJRV62!
@@ -41,4 +41,5 @@ function sendMessage(bot, message, text) {
 	    .text(text);
 	bot.send(reply);
 }
+
 luis.startDialog(bot);
