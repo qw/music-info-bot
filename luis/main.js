@@ -49,7 +49,6 @@ exports.startDialog = function(bot) {
 			}
 		},
 		function (session, results, next) {
-			console.log("#######################");
 			if (results.response) {
 				session.conversationData["username"] = results.response;
 			}
@@ -143,6 +142,7 @@ exports.startDialog = function(bot) {
 	    matches: 'Information.Help'
 	});
 
+	// The welcome intent is now handled by the QnA API from Microsoft Cognitive Services
 	// bot.dialog("Welcome", 
 	// 	function(session, args) { 
 	// 		session.say("Welcome Intent", "Welcome Intent");
@@ -151,5 +151,4 @@ exports.startDialog = function(bot) {
 	// ).triggerAction({
 	// 	matches: "Welcome"
 	// });
-
 }

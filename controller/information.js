@@ -12,7 +12,7 @@ function displayAlbumCard(session, response) {
 
     // Assemble cards representing album information
 	for (var i in message.tracks.items) {
-		// Only display 5 cards.
+		// Only display 5 cards, anymore will cause lag
 		if (i > 4) {
 			break;
 		}
@@ -24,7 +24,7 @@ function displayAlbumCard(session, response) {
 
         var card = new builder.HeroCard(session)
 	        .title(album)
-	        .text("This is a(an) " + albumType)
+	        .text("This is a(an) " + albumType) // Album could be single or album
 	        .images([
 	            builder.CardImage.create(session, imageUrl)])
 	        .buttons([

@@ -8,6 +8,7 @@ var headers = {
 
 // Calling the callback function with the response body inserted before an array of specified parameters of the callback function.
 // Please see ../controller/favourites#getFavourite() for an example.
+// This is done so this function doesn't have to know the signature of the callback function.
 exports.get = function get(callback, params) {
 	request.get(url, { 'headers': headers }, function(err, res, body) { // parameter body is the response body of the GET request
 		if (err) {

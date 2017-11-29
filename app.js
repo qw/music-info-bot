@@ -35,6 +35,7 @@ bot.on("conversationUpdate", function (message) {
     }
 });
 
+// Helper function to build a reply object in order to send a message to the user.
 function sendMessage(bot, message, text) {
 	var reply = new builder.Message()
 	    .address(message.address)
