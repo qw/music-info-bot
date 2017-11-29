@@ -122,10 +122,8 @@ exports.startDialog = function(bot) {
 	    function (session, args, next) {
 	    	console.log("Information.QnA Intent");
 	        session.dialogData.args = args || {};
-	        builder.Prompts.text(session, "What is your question?");
-	    },
-	    function (session, results, next) {
-	        qna.talkToQnA(session, results.response);
+	        // builder.Prompts.text(session, "What is your question?");
+	        qna.talkToQnA(session, session.message.text);
 	    }
 	]).triggerAction({
 	    matches: 'Information.QnA'
